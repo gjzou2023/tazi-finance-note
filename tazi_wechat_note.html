@@ -1,0 +1,1534 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>塔孜财税 - 互联网财税管家微信笔记</title>
+  <style>
+    :root {
+      --background: #f6f7f5;
+      --foreground: #161b1f;
+      --card: #ffffff;
+      --card-foreground: #18211d;
+      --muted: #6b7280;
+      --muted-foreground: #59635f;
+      --border: #dfe8e2;
+      --primary: #06a66a;
+      --primary-foreground: #ffffff;
+      --accent: #fff5e6;
+      --accent-foreground: #8a4b08;
+      --destructive: #c2410c;
+      --ring: rgba(6, 166, 106, .25);
+      --radius: 8px;
+      --shadow: 0 20px 60px rgba(26, 45, 36, .12);
+      --font-sans: "Geist", "Geist Sans", "Microsoft YaHei", "PingFang SC", "Noto Sans SC", Arial, sans-serif;
+      --font-mono: "Geist Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--foreground);
+      background:
+        linear-gradient(180deg, rgba(6, 166, 106, .06), transparent 340px),
+        var(--background);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    a { color: inherit; }
+
+    .shell {
+      width: min(920px, 100%);
+      margin: 0 auto;
+      padding: 28px 18px 56px;
+    }
+
+    .article {
+      max-width: 750px;
+      margin: 0 auto;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .article-inner { padding: 34px 34px 46px; }
+
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0;
+      margin-bottom: 18px;
+    }
+
+    .brandmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 30px;
+      padding: 4px 10px;
+      border: 1px solid rgba(6, 166, 106, .28);
+      border-radius: 999px;
+      background: #f4fff9;
+    }
+
+    .brandmark img {
+      height: 22px;
+      width: auto;
+      border-radius: 3px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      color: #111827;
+      font-size: clamp(30px, 6vw, 52px);
+      line-height: 1.12;
+      font-weight: 650;
+      letter-spacing: 0;
+      text-wrap: pretty;
+    }
+
+    .split-title {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .split-title span {
+      align-self: flex-end;
+      font-size: clamp(16px, 3.5vw, 22px);
+      font-weight: 400;
+      color: #111827;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: #334155;
+      font-size: 17px;
+      line-height: 1.85;
+    }
+
+    .title-divider {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      margin: 0 0 24px;
+      opacity: 0.5;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin: 18px 0 26px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .meta b { color: #2d6b52; font-weight: 600; }
+
+    .hero-img {
+      overflow: hidden;
+      border-radius: var(--radius);
+      margin: 0 -34px 24px;
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .slogan {
+      margin: 26px 0 22px;
+      padding: 18px 18px;
+      border-left: 4px solid var(--primary);
+      background: linear-gradient(90deg, rgba(6, 166, 106, .08), rgba(6, 166, 106, .02));
+      color: #12392b;
+      font-size: 18px;
+      font-weight: 650;
+    }
+
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      margin: 26px 0 34px;
+    }
+
+    .toc a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 8px 10px;
+      color: #174735;
+      text-decoration: none;
+      border: 1px solid #bfe9d2;
+      border-radius: 8px;
+      background: #eefaf4;
+      font-size: 13px;
+      font-weight: 650;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .toc a:hover {
+      background: #c6ead7;
+      border-color: #8dd8aa;
+    }
+
+    .toc a::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+      margin-right: 6px;
+      flex-shrink: 0;
+    }
+
+    section {
+      padding: 22px 0 4px;
+      border-top: 1px solid var(--border);
+    }
+
+    .breath-strip {
+      margin: 28px -34px;
+      padding: 28px 34px;
+      background: linear-gradient(135deg, #06a66a 0%, #04784f 100%);
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .breath-strip::before {
+      content: "";
+      position: absolute;
+      top: -30px;
+      right: -20px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+    }
+
+    .breath-strip::after {
+      content: "";
+      position: absolute;
+      bottom: -40px;
+      left: 30px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.05);
+    }
+
+    .breath-strip p {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.5;
+      margin: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .breath-strip .breath-sub {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,.82);
+      margin-top: 6px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 16px;
+      color: #111827;
+      font-size: 25px;
+      line-height: 1.28;
+      font-weight: 650;
+      letter-spacing: 0;
+    }
+
+    .section-title::before {
+      content: attr(data-index);
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      color: var(--primary-foreground);
+      background: var(--primary);
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: #26332e;
+      font-size: 16px;
+      line-height: 1.65;
+      text-wrap: pretty;
+    }
+
+    strong { color: #0b714c; font-weight: 700; }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0 20px;
+    }
+
+    .metric {
+      padding: 16px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #f0faf6, #fff);
+    }
+
+    .metric b {
+      display: block;
+      color: #04784f;
+      font-family: var(--font-mono);
+      font-size: 32px;
+      line-height: 1.2;
+      font-weight: 750;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 4px;
+      color: #4b5563;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .image-block {
+      margin: 20px -34px 24px;
+      overflow: hidden;
+    }
+
+    .image-block img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 20px 0 24px;
+    }
+
+    .role-card {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .role-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--primary);
+      border-radius: var(--radius) 0 0 var(--radius);
+    }
+
+    .role-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .role-card h3 .role-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #06a66a 0%, #048052 100%);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .role-card,
+    .product-card,
+    .advantage-card,
+    .case-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      padding: 16px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .role-card:hover,
+    .product-card:hover,
+    .advantage-card:hover,
+    .case-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(6, 166, 106, .1);
+    }
+
+    .role-card h3,
+    .product-card h3,
+    .advantage-card h3,
+    .case-card h3 {
+      margin: 0 0 8px;
+      color: #111827;
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 650;
+    }
+
+    .role-card p,
+    .product-card p,
+    .advantage-card p,
+    .case-card p {
+      margin: 0;
+      color: #46534e;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .team-intro {
+      margin: 20px 0;
+      padding: 16px 20px;
+      border-left: 4px solid var(--primary);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: #f6faf7;
+      color: var(--foreground);
+      font-size: 15px;
+      line-height: 1.75;
+      letter-spacing: 0.3px;
+    }
+
+    .promise {
+      margin: 20px 0;
+      padding: 18px 20px;
+      border: 1px solid #e8c9a0;
+      border-left: 4px solid #D94600;
+      border-radius: var(--radius);
+      background: #fff5e6;
+      color: var(--accent-foreground);
+      font-weight: 650;
+      font-size: 14.5px;
+      line-height: 1.7;
+      letter-spacing: 0.3px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 18px 0 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    @media (min-width: 681px) {
+      table { min-width: 660px; }
+    }
+
+    th,
+    td {
+      padding: 12px 12px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    th {
+      color: #0d4d38;
+      background: #effaf4;
+      font-weight: 700;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+    th:last-child,
+    td:last-child { border-right: 0; }
+
+    .product-list {
+      display: grid;
+      gap: 14px;
+      margin: 20px 0;
+    }
+
+    .product-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card::after {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: var(--primary);
+    }
+
+    .product-card header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      color: #07563b;
+      background: #e8f8ef;
+      border: 1px solid #c6ead7;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .price {
+      color: var(--destructive);
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 750;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 8px;
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding-left: 22px;
+      color: #33413c;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .feature-list li::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: .72em;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--primary);
+      box-shadow: 0 0 0 3px rgba(6, 166, 106, .12);
+    }
+
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .compare {
+      display: grid;
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .compare-hero {
+      text-align: center;
+      margin: 22px 0 24px;
+      padding: 24px 20px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #04784f 0%, #065f3d 100%);
+    }
+
+    .compare-hero-title {
+      font-size: clamp(20px, 4vw, 28px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .compare-hero-sub {
+      margin: 0;
+      color: rgba(255,255,255,.88);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .compare-row {
+      display: grid;
+      grid-template-columns: 36px 1fr 1fr;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .compare-num {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: #fff;
+      color: #c2410c;
+      border: 2px solid #c2410c;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      align-self: center;
+    }
+
+    .pain,
+    .solution {
+      padding: 14px 16px 14px 38px;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.65;
+      position: relative;
+    }
+
+    .pain {
+      color: #7c2d12;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+    }
+
+    .pain::before {
+      content: "✕";
+      position: absolute;
+      left: 12px;
+      top: 14px;
+      color: #c2410c;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .solution {
+      color: #0f5138;
+      background: #eefaf4;
+      border: 1px solid #bfe9d2;
+      font-weight: 650;
+    }
+
+    .solution::before {
+      content: "✓";
+      position: absolute;
+      left: 12px;
+      top: 14px;
+      color: #04784f;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .case-card {
+      position: relative;
+      padding-left: 22px;
+      padding-top: 28px;
+    }
+
+    .case-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 4px 0 0 4px;
+      background: var(--primary);
+    }
+
+    .case-card::after {
+      content: "\201C";
+      position: absolute;
+      top: 4px;
+      right: 12px;
+      font-size: 42px;
+      line-height: 1;
+      color: rgba(6, 166, 106, .12);
+      font-family: Georgia, serif;
+      font-weight: 700;
+      pointer-events: none;
+    }
+
+    .case-card h3 {
+      margin: 0 0 8px;
+      color: #111827;
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 650;
+    }
+
+    .case-card p {
+      margin: 0;
+      color: #46534e;
+      font-size: 14px;
+      line-height: 1.55;
+      font-style: italic;
+    }
+
+    .network {
+      padding: 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: #f8fbf9;
+    }
+
+    .network p { font-size: 14px; }
+
+    .contact {
+      margin: 24px 0 4px;
+      padding: 22px;
+      border-radius: var(--radius);
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, .12), transparent 42%),
+        #04784f;
+    }
+
+    .contact h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 650;
+    }
+
+    .contact p {
+      color: rgba(255, 255, 255, .9);
+      margin-bottom: 8px;
+    }
+
+    .contact .site {
+      display: inline-flex;
+      margin-top: 8px;
+      padding: 7px 10px;
+      color: #08432e;
+      border-radius: 6px;
+      background: #fff;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .contact .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      padding: 12px 24px;
+      color: #04784f;
+      border-radius: 8px;
+      background: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .contact .qr-area {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .contact .qr-area img {
+      width: 110px;
+      height: 110px;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,.5);
+      background: #fff;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+
+    .contact .qr-area .qr-text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255,255,255,.92);
+    }
+
+    .contact .qr-area .qr-text b {
+      display: block;
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    /* ===== 联系区块 - 全宽铺满 redesign ===== */
+    .contact-wide {
+      margin: 0 -34px;
+      padding: 40px 34px 32px;
+      border-radius: 0;
+      background: #065f3d;
+    }
+
+    .contact-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,.55);
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .contact-wide h2 {
+      color: #fff;
+      font-size: clamp(26px, 5vw, 38px);
+      font-weight: 700;
+      margin: 0 0 10px;
+      line-height: 1.2;
+    }
+
+    .contact-subtitle {
+      color: rgba(255,255,255,.85);
+      font-size: 15px;
+      margin: 0 0 28px;
+      line-height: 1.6;
+    }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: stretch;
+      padding: 0;
+      margin-bottom: 0;
+    }
+
+    .contact-card-left {
+      display: grid;
+      gap: 18px;
+    }
+
+    .contact-info-row {
+      display: grid;
+      gap: 4px;
+    }
+
+    .contact-info-label {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .contact-info-value {
+      color: rgba(255,255,255,.9);
+      font-family: var(--font-mono);
+      font-size: 15px;
+    }
+
+    .contact-info-desc {
+      color: rgba(255,255,255,.8);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .contact-phone {
+      display: inline-flex;
+      margin-top: 6px;
+      padding: 10px 20px;
+      background: #fff;
+      color: #065f3d;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+
+    .contact-card-right {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 160px;
+    }
+
+    .contact-card-right img {
+      height: 100%;
+      width: auto;
+      max-width: 220px;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      border: 3px solid rgba(255,255,255,.35);
+      background: #fff;
+      padding: 4px;
+      object-fit: contain;
+    }
+
+    .contact-footer-outside {
+      text-align: center;
+      padding: 20px 34px;
+      color: #6b7280;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .contact-footer-outside p {
+      margin: 0;
+    }
+
+    @media (max-width: 680px) {
+      .contact .qr-area {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .contact .qr-area img {
+        width: 120px;
+        height: 120px;
+      }
+      .contact-wide {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding: 28px 20px 24px;
+      }
+      .contact-card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0;
+        align-items: start;
+      }
+      .contact-card-right {
+        align-self: auto;
+        justify-content: center;
+      }
+      .contact-card-right img {
+        height: auto;
+        width: 140px;
+        max-width: none;
+      }
+      .contact-footer-outside {
+        padding: 16px 20px;
+      }
+      .contact-wide h2 {
+        font-size: 22px;
+      }
+    }
+
+    .testimonials {
+      display: grid;
+      gap: 12px;
+      margin: 18px 0 22px;
+    }
+
+    .testimonial {
+      padding: 16px 18px;
+      border-left: 4px solid var(--primary);
+      background: linear-gradient(90deg, rgba(6, 166, 106, .06), transparent);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .testimonial-text {
+      margin: 0 0 6px;
+      color: #1a2e25;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      margin: 0;
+      color: #6b7280;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .testimonials-compact {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0 22px;
+    }
+
+    .testimonials-compact .testimonial {
+      padding: 12px 14px;
+      border-left: 3px solid var(--primary);
+      background: linear-gradient(90deg, rgba(6, 166, 106, .06), transparent);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .testimonials-compact .testimonial-text {
+      margin: 0 0 4px;
+      color: #1a2e25;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.55;
+      font-style: italic;
+    }
+
+    .testimonials-compact .testimonial-author {
+      margin: 0;
+      color: #6b7280;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .banner-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .banner-item {
+      padding: 12px 14px;
+      text-align: center;
+      border: 1px solid #e8d5c0;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, #fff8f0, #fff);
+      color: #8a4b08;
+      font-size: 14px;
+      font-weight: 650;
+      line-height: 1.4;
+    }
+
+    .footer {
+      max-width: 750px;
+      margin: 14px auto 0;
+      color: #4b5563;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .footer::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--primary);
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    .backtop {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 10;
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 12px 24px rgba(6, 166, 106, .28);
+      font-weight: 800;
+    }
+
+    @media (max-width: 680px) {
+      .shell { padding: 0; }
+      .article {
+        border: 0;
+        box-shadow: none;
+      }
+      .article-inner { padding: 28px 20px 36px; }
+      .hero-img {
+        margin: 0 -20px 24px;
+      }
+      .topline { align-items: flex-start; flex-direction: column; }
+      .toc {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+      }
+      .toc a {
+        min-height: 44px;
+        justify-content: flex-start;
+      }
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .team-grid,
+      .advantage-grid,
+      .case-grid { grid-template-columns: 1fr; }
+      .compare-hero {
+        margin: 18px -20px 20px;
+        padding: 20px 20px;
+        border-radius: 0;
+      }
+      .compare-hero-title {
+        font-size: 20px;
+      }
+      .compare-row {
+        grid-template-columns: 32px 1fr;
+        gap: 8px;
+      }
+      .compare-num {
+        grid-row: span 2;
+        width: 32px;
+        height: 32px;
+        font-size: 11px;
+        align-self: start;
+        background: #fff;
+        color: #c2410c;
+        border: 2px solid #c2410c;
+      }
+      .pain, .solution {
+        grid-column: 2;
+      }
+      .solution::after {
+        display: none;
+      }
+      .image-block {
+        margin: 20px -20px 24px;
+      }
+
+      .breath-strip {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding: 22px 20px;
+      }
+      .breath-strip p { font-size: 18px; }
+
+      .backtop {
+        width: 36px;
+        height: 36px;
+        opacity: 0.7;
+      }
+      .table-wrap {
+        border: 0;
+        border-radius: 0;
+      }
+      table {
+        font-size: 13px;
+      }
+      th, td {
+        padding: 10px 8px;
+        font-size: 13px;
+      }
+      .testimonial-text { font-size: 14px; }
+      .testimonials-compact {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .testimonials-compact .testimonial {
+        padding: 10px 12px;
+      }
+      .banner-item { font-size: 13px; padding: 10px 12px; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .shell { padding: 0; }
+      .article { max-width: none; border: 0; box-shadow: none; }
+      .article-inner { padding: 0; }
+      .toc,
+      .backtop { display: none; }
+      section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body id="top">
+  <div class="shell">
+    <article class="article">
+      <div class="article-inner">
+        <div class="topline">
+          <span class="brandmark"><img src="assets/logo.png" alt="塔孜财税Logo">塔孜财税</span>
+          <span>互联网财税管家 · 中小企业服务</span>
+        </div>
+
+        <h1 class="split-title">老板少操心,财税更安心<span>——一文看懂塔孜财税怎么服务中小企业？</span></h1>
+        <p class="subtitle">公司注册、记账报税、工商变更、商标专利、公司注销——中小企业的高频财税事项，塔孜一站式解决。</p>
+
+        <div class="meta">
+          <span><b>塔孜财税</b></span>
+          <span>2026年5月30日</span>
+          <span>原创整理</span>
+        </div>
+
+        <hr class="title-divider">
+
+        <figure class="hero-img">
+          <img src="assets/company_pdf_page_01.jpg" alt="塔孜集团财税手册封面">
+        </figure>
+
+        <nav
+        <nav class="toc" aria-label="文章目录">
+          <a href="#about">关于我们</a>
+          <a href="#products">产品体系</a>
+          <a href="#bookkeeping">代理记账</a>
+          <a href="#compliance">合规账</a>
+          <a href="#operation">经营账</a>
+          <a href="#team">服务团队</a>
+          <a href="#advantages">服务优势</a>
+          <a href="#cases">客户好评</a>
+          <a href="#network">服务网络</a>
+          <a href="#contact">联系我们</a>
+        </nav>
+
+        <section id="about">
+          <h2 class="section-title" data-index="01">关于我们</h2>
+          <p>塔孜科技集团有限公司成立于<strong>2009年</strong>,是<strong>国家高新技术企业</strong>。集团在蚌埠、宿州、淮北、马鞍山、阜阳等地<strong>自购写字楼5000余平方米</strong>。旗下<strong>安徽塔孜财务管理有限公司</strong>专注互联网财税服务（含代理记账、合规账、经营账外包）,目前已设立<strong>10余家分公司</strong>,累计服务<strong>10000+</strong>企业客户。集团同时覆盖网站建设、数字营销、知识产权等业务。</p>
+          <div class="metrics">
+            <div class="metric"><b>2009</b><span>集团成立</span></div>
+            <div class="metric"><b>5000+</b><span>自购办公面积（㎡）</span></div>
+            <div class="metric"><b>10+</b><span>直营网点与分公司</span></div>
+            <div class="metric"><b>10000+</b><span>累计服务企业</span></div>
+          </div>
+          <figure class="image-block">
+            <img src="assets/company_pdf_page_02.jpg" alt="塔孜公司环境与简介">
+          </figure>
+          <p><strong>我们的使命</strong>:以专业的服务团队,为中小企业经营保驾护航,成为您身边的互联网财税管家。</p>
+        </section>
+
+                <div class="breath-strip">
+          <p>一家企业,从注册到壮大,财税问题从未停过</p>
+          <p class="breath-sub">但大多数老板,选错了应对方式</p>
+        </div>
+
+        <section id="products">
+          <h2 class="section-title" data-index="02">产品体系</h2>
+          <p>大多数老板选错了应对方式——那正确的方式是什么？塔孜提供三大核心产品线,覆盖注册、记账报税、注销、变更等一站式互联网智能财税服务。</p>
+          <figure class="image-block">
+            <img src="assets/company_pdf_page_07.jpg" alt="塔孜财税产品体系">
+          </figure>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>对比维度</th>
+                  <th>代理记账(小规模)</th>
+                  <th>合规账(一般纳税人)</th>
+                  <th>经营账外包</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>适用企业</td>
+                  <td>初创/小微企业</td>
+                  <td>规模型/一般纳税人</td>
+                  <td>中大型/精细化管理</td>
+                </tr>
+                <tr>
+                  <td>核心价值</td>
+                  <td>基础合规,省心起步</td>
+                  <td>风险预警,金四合规</td>
+                  <td>制度搭建,经营赋能</td>
+                </tr>
+                <tr>
+                  <td>服务深度</td>
+                  <td>记账报税 + 基础增值</td>
+                  <td>十大模块深度合规</td>
+                  <td>19项全流程精细服务</td>
+                </tr>
+                <tr>
+                  <td>起步价格</td>
+                  <td>800元/年起</td>
+                  <td>1400元/月起</td>
+                  <td>3000元/月起</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:12px;color:#6b7280;margin-top:6px;">※ 代理记账按年签约收费；合规账与经营账按月收费，按年签约。</p>
+        </section>
+
+        <section id="bookkeeping">
+          <h2 class="section-title" data-index="03">代理记账(小规模纳税人)</h2>
+          <div class="product-card">
+            <header>
+              <h3>基础合规 · 降本增效 · 无忧起步</h3>
+              <span class="tag">适合初创/小微企业</span>
+            </header>
+            <p>适用对象:初创企业、小微企业、年开票额较小、希望以较低固定成本完成基础财税合规的企业。</p>
+            <ul class="feature-list">
+              <li>税务登记、税务报到、初次发票审批、税银联网、网报办理。</li>
+              <li>整理粘贴单据、总账与明细账记账、编制会计报表及税务申报表。</li>
+              <li>纳税申报、税务日常配合、凭证规范装订、报表存档、年末账本打印装订。</li>
+              <li>代理购买发票、开票服务、小程序财务查询、社保托管、核定残保金。</li>
+              <li>协助税务检查、日常财税咨询、指导企业出纳、企业工商年检、年度所得税汇算清缴。</li>
+            </ul>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>档位</th>
+                  <th>年度费用</th>
+                  <th>多年方案</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>零申报</td><td class="price">800元/年</td><td>3年3300元 | 5年5000元</td></tr>
+                <tr><td>100万以内</td><td class="price">1200元/年</td><td>3年3900元 | 5年5500元</td></tr>
+                <tr><td>100-200万</td><td class="price">1500元/年</td><td>3年5100元 | 5年7000元</td></tr>
+                <tr><td>200万以上</td><td class="price">2000元/年起</td><td>多年一客一议</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>可选增值项目:银行开户500元/次起,社保/公积金开户600元/次起,一般纳税人认定600元/年起,办公耗材300元/年。</p>
+        </section>
+
+        <section id="compliance">
+          <h2 class="section-title" data-index="04">合规账服务(一般纳税人)</h2>
+          <div class="product-card">
+            <header>
+              <h3>金四合规 · 风险预警 · 证据链闭环</h3>
+              <span class="tag">适合规模型企业</span>
+            </header>
+            <p>在金税四期严监管下,为企业构建完整证据链与税务风险防控体系,尤其适合票据、进项、库存、往来、工资和报表要求更高的一般纳税人企业。</p>
+            <ul class="feature-list">
+              <li>基础管理:注册、初始建账、税务登记、银行开户预约。</li>
+              <li>合规开票:数电发票申请、5分钟响应、内容审核、进项质检预警。</li>
+              <li>证据链管理:每项审核、每月归档,保障业务、票据、资金、合同逻辑一致。</li>
+              <li>税务对接:专管员对接、绿色通道、稽查应对。</li>
+              <li>记账报税:总账明细、报表编制、年报、凭证存档。</li>
+              <li>库存账、往来账款、人员工资、税务体检、沟通管理等十大模块深度合规。</li>
+            </ul>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>主营规模</th><th>收费标准</th><th>说明</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>年主营业务收入1000万以内</td><td class="price">1400元/月</td><td>按月收费,按年签约</td></tr>
+                <tr><td>1000-2000万</td><td class="price">2000元/月</td><td>按月收费,按年签约</td></tr>
+                <tr><td>2000万以上</td><td class="price">一客一议</td><td>按经营复杂度确认方案</td></tr>
+                <tr><td>专项增值</td><td class="price">1600元/月起</td><td>辅助账搭建;含专项服务2200元/月起</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="operation">
+          <h2 class="section-title" data-index="05">经营账外包服务</h2>
+          <div class="product-card">
+            <header>
+              <h3>制度搭建 · 精细核算 · 经营分析 · 管理赋能</h3>
+              <span class="tag">适合管理升级企业</span>
+            </header>
+            <p>经营账外包不止是报税,它更关注企业内部管理:有没有制度、数据准不准、成本利润看不看得懂、经营动作能不能被报表支持。</p>
+            <ul class="feature-list">
+              <li>服务流程:企业沟通 → 签约 → 财务体系梳理 → 内部系统搭建 → 凭证审核做账出表 → 分析督导。</li>
+              <li>阶段一:业务沟通、六大模块制度梳理、软件提供、账套建立、初始化数据指导。</li>
+              <li>阶段二:报销流程梳理、岗位指导培训。</li>
+              <li>阶段三:成本、销售、费用、资金审核,进销存核算,凭证编制。</li>
+              <li>阶段四:资产负债表、管理利润表、财务分析、ERP搭建、年度分析。</li>
+              <li>阶段五:凭证装订、政策宣导、每月汇报。</li>
+            </ul>
+            <p style="margin-top:12px;"><span class="price">3000元/月起,按年收费</span>,具体根据企业规模和服务深度一客一议。</p>
+          </div>
+        </section>
+
+        <div class="breath-strip" style="margin-top:0;margin-bottom:28px;">
+            <p>服务好不好，团队说了算</p>
+            <p class="breath-sub">看看塔孜如何为您配置专属财税团队</p>
+          </div>
+
+        <section id="team">
+          <h2 class="section-title" data-index="06">专属服务团队</h2>
+          <p>财税服务的核心不是"一个人替你报税",而是让工商、税务、银行、社保、公积金、票据、账目和咨询都有明确责任人。塔孜坚持<strong>标准四对一</strong>（常规服务）/<strong>5维1体</strong>（经营账外包）服务模式,为每位客户建立<strong>独立企业档案</strong>（含资料交接确认表）,保障资料安全与信息准确。</p>
+          <figure class="image-block">
+            <img src="assets/company_pdf_page_04.jpg" alt="塔孜财税团队展示">
+          </figure>
+          <p class="team-intro">专业的事交给专业的人。塔孜财税希望做的,是让企业把更多精力放回经营本身。</p>
+          <h3 style="margin:18px 0 10px;font-size:18px;">常规产品服务团队（4对1）</h3>
+          <div class="team-grid">
+            <div class="role-card"><h3><span class="role-icon">经</span>经理</h3><p>监督服务状态，提供全方位舒心服务。</p></div>
+            <div class="role-card"><h3><span class="role-icon">会</span>主办会计</h3><p>负责开票、做账、报税工作。</p></div>
+            <div class="role-card"><h3><span class="role-icon">管</span>管家</h3><p>站在客户角度解决所有问题，倾听诉求。</p></div>
+            <div class="role-card"><h3><span class="role-icon">勤</span>外勤</h3><p>办理企业工商、税务、银行、社保公积金等外出事项。</p></div>
+          </div>
+          <h3 style="margin:18px 0 10px;font-size:18px;">经营账外包服务团队（5维1体）</h3>
+          <p>在常规4对1团队基础上增加<strong>核算会计</strong>，形成5维1体专属服务，专注凭证处理与数据核算，让财务真正服务于管理。</p>
+          <div class="role-card" style="max-width:320px;"><h3><span class="role-icon">核</span>核算会计</h3><p>专注凭证处理与数据核算。</p></div>
+          <div class="promise">服务承诺:一户一群,5分钟响应,全程可追溯,24小时财税风险实时预警。</div>
+          <figure class="image-block">
+            <img src="assets/company_pdf_page_06.jpg" alt="塔孜企业专属档案和四对一服务">
+          </figure>
+        </section>
+
+        <section id="advantages">
+
+          <h2 class="section-title" data-index="07">服务优势与保障</h2>
+          <p>塔孜财税的优势可以概括为四句话:品牌实力强、服务工具智能化、服务模式多对一、服务内容可视化。</p>
+          <figure class="image-block">
+            <img src="assets/company_pdf_page_05.jpg" alt="塔孜财税服务优势">
+          </figure>
+          <div class="advantage-grid">
+            <div class="advantage-card"><h3>避免错报漏报</h3><p>4重服务审核,自动防止漏报、错报、迟报。</p></div>
+            <div class="advantage-card"><h3>账目数据安全</h3><p>资料统一入档,敏感数据加密存储。</p></div>
+            <div class="advantage-card"><h3>专属财税管家</h3><p>及时咨询处理问题,沟通有记录,服务可追踪。</p></div>
+            <div class="advantage-card"><h3>防范税务风险</h3><p>24小时实时预警,帮助企业减少税务处罚风险。</p></div>
+          </div>
+
+          
+
+          <div class="compare-hero">
+            <div class="compare-hero-title">同样是代账，差距到底在哪？</div>
+            <p class="compare-hero-sub">塔仔把传统代账痛点，转化为可追溯的服务承诺，让您省时、省钱、更省心。</p>
+          </div>
+          <div class="compare">
+            <div class="compare-row">
+              <div class="compare-num">01</div>
+              <div class="pain">会计一个人管几十家，回个消息等半天。</div>
+              <div class="solution">4对1专属团队，一户一群，5分钟内响应。</div>
+            </div>
+            <div class="compare-row">
+              <div class="compare-num">02</div>
+              <div class="pain">只报税，从不提醒风险，出了问题才通知。</div>
+              <div class="solution">季度税务体检 + 24小时风险预警，提前排查。</div>
+            </div>
+            <div class="compare-row">
+              <div class="compare-num">03</div>
+              <div class="pain">交了钱不知道干了啥，账目从没看过。</div>
+              <div class="solution">小程序随时查账，服务内容可视化，全程留痕。</div>
+            </div>
+            <div class="compare-row">
+              <div class="compare-num">04</div>
+              <div class="pain">报表一堆数字，老板根本看不懂。</div>
+              <div class="solution">经营报表口语化解读 + 每月主动汇报，让您看懂。</div>
+            </div>
+            <div class="compare-row">
+              <div class="compare-num">05</div>
+              <div class="pain">记账是记账，经营是经营，两套系统。</div>
+              <div class="solution">经营账深度搭建制度，让财务真正服务于管理。</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="cases">
+          <h2 class="section-title" data-index="08">服务案例与客户好评</h2>
+          <div class="case-grid">
+            <div class="case-card"><h3>某商贸公司（年营收800万）</h3><p>接手前：票据混乱、多次迟报罚款。接手后：3个月完成合规梳理，当年零处罚。</p></div>
+            <div class="case-card"><h3>某制造企业（一般纳税人）</h3><p>金税四期预警触发，塔孜协助补正进项凭证，避免约20万潜在罚款。</p></div>
+            <div class="case-card"><h3>某餐饮连锁（6家门店）</h3><p>从单店记账升级到经营账外包，老板第一次看到每家门店的真实利润率。</p></div>
+          </div>
+
+          <h3 style="margin:22px 0 10px;font-size:20px;">真实客户反馈</h3>
+          <figure class="image-block">
+            <img src="assets/company_pdf_page_09.jpg" alt="塔孜财税客户好评反馈">
+          </figure>
+
+          <div class="testimonials testimonials-compact">
+            <div class="testimonial">
+              <p class="testimonial-text">"代账肯定是继续做、一直让你做。还是你们专业靠谱。"</p>
+              <p class="testimonial-author">—— 彭总（长期合作客户）</p>
+            </div>
+            <div class="testimonial">
+              <p class="testimonial-text">"心里的石头终于能放下了。"</p>
+              <p class="testimonial-author">—— 丽达康·梁总（通话1小时18分后评价）</p>
+            </div>
+            <div class="testimonial">
+              <p class="testimonial-text">"谢谢亲，给你点赞👍"</p>
+              <p class="testimonial-author">—— 客户微信反馈</p>
+            </div>
+            <div class="testimonial">
+              <p class="testimonial-text">"不问永远解决不了，下周还要问你们。"</p>
+              <p class="testimonial-author">—— 秦·翔飞贸易（主动寻求持续服务）</p>
+            </div>
+          </div>
+
+          <h3 style="margin:22px 0 10px;font-size:20px;">客户赠送锦旗精选</h3>
+          <figure class="image-block">
+            <img src="assets/company_pdf_page_10.jpg" alt="塔孜财税客户锦旗">
+          </figure>
+          <div class="banner-grid">
+            <div class="banner-item">工作周到 服务用心</div>
+            <div class="banner-item">尽心尽责 业务精湛</div>
+            <div class="banner-item">诚信可靠 全心服务</div>
+            <div class="banner-item">爱岗敬业 尽职尽责</div>
+            <div class="banner-item">热情服务 业务精干</div>
+            <div class="banner-item">优质服务 情暖客户</div>
+            <div class="banner-item">认真负责办事 尽心尽力为企业</div>
+            <div class="banner-item">服务精心 质量称心 工作到位 全排忧</div>
+          </div>
+        </section>
+
+        <section id="network">
+          <h2 class="section-title" data-index="09">全国服务网络</h2>
+          <p>塔孜财税已在<strong>安徽、江苏、湖北</strong>三地设立<strong>10余家分公司</strong>，自有办公场地5000余平方米，形成覆盖长三角与中部的服务网络。</p>
+          <figure class="image-block">
+            <img src="assets/company_pdf_page_11.jpg" alt="塔孜财税分公司地址">
+          </figure>
+        </section>
+
+        <section id="contact">
+          <div class="contact contact-wide">
+            <div class="contact-label">10 · 联系我们</div>
+            <h2>专业的事交给专业的人，让您经营无忧</h2>
+            <p class="contact-subtitle">欢迎添加微信或致电咨询，获取专属财税顾问服务。</p>
+
+            <div class="contact-card">
+              <div class="contact-card-left">
+                <div class="contact-info-row">
+                  <div class="contact-info-label">公司网址</div>
+                  <div class="contact-info-value">www.tazi.net.cn</div>
+                </div>
+                <div class="contact-info-row">
+                  <div class="contact-info-label">武汉公司办公地址</div>
+                  <div class="contact-info-desc">
+                    汉口：泛海国际SOHO城2栋2301室<br>
+                    武昌：武珞路十五中裕阳大厦11层101室
+                  </div>
+                </div>
+                <div class="contact-info-row">
+                  <div class="contact-info-label">咨询热线</div>
+                  <div class="contact-phone">17362305128</div>
+                </div>
+              </div>
+              <div class="contact-card-right">
+                <img src="assets/qrcode.png" alt="塔孜财税客服企微二维码">
+              </div>
+            </div>
+          </div>
+          <div class="contact-footer-outside">
+            <p>© 2026 塔孜科技集团有限公司 · 您身边的互联网财税管家</p>
+          </div>
+        </section>
+      </div>
+    </article>
+  </div>
+  <a class="backtop" href="#top" aria-label="返回顶部">↑</a>
+</body>
+</html>
