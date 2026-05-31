@@ -1207,6 +1207,113 @@
       border-radius: 6px;
       margin-right: 6px;
     }
+    /* 零星服务 · 高频服务卡 */
+    .hot-card {
+      border: 1px solid var(--border);
+      border-left: 4px solid #c2410c;
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 0;
+      margin: 16px 0;
+      overflow: hidden;
+    }
+    .hot-card-header {
+      background: linear-gradient(135deg, #fff7ed, #fff);
+      padding: 10px 16px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #9a3412;
+      border-bottom: 1px solid #fed7aa;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hot-item {
+      display: flex;
+      align-items: baseline;
+      padding: 11px 16px;
+      border-bottom: 1px dashed #e5e7eb;
+      gap: 8px;
+    }
+    .hot-item:last-child { border-bottom: none; }
+    .hot-item .dot {
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: 5px;
+    }
+    .hot-item .dot.red { background: #dc2626; }
+    .hot-item .dot.yellow { background: #f59e0b; }
+    .hot-item .dot.green { background: #06a66a; }
+    .hot-item .info { flex: 1; min-width: 0; }
+    .hot-item .title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .hot-item .title {
+      font-weight: 700;
+      font-size: 15px;
+      color: #111827;
+    }
+    .hot-item .price-tag {
+      flex-shrink: 0;
+      color: #c2410c;
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+    .hot-item .desc {
+      font-size: 13px;
+      color: #6b7280;
+      margin-top: 2px;
+      line-height: 1.5;
+    }
+    /* 零星服务 · 分类速查卡 */
+    .quick-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin: 16px 0;
+    }
+    .quick-card-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #374151;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .quick-row {
+      margin-bottom: 8px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #46534e;
+    }
+    .quick-row:last-child { margin-bottom: 0; }
+    .quick-row .cat-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 1px 8px;
+      border-radius: 4px;
+      margin-right: 4px;
+    }
+    .quick-row .cat-label.business { background: #e8f8ef; color: #04784f; }
+    .quick-row .cat-label.tax { background: #fff7ed; color: #c2410c; }
+    .quick-row .cat-label.other { background: #f3f4f6; color: #4b5563; }
+    .quick-note {
+      font-size: 12.5px;
+      color: #04784f;
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed #d1d5db;
+    }
 
     /* 金句收尾 */
     .closing-highlight {
@@ -1310,7 +1417,7 @@
 
         <section id="products">
           <h2 class="section-title" data-index="02">产品体系</h2>
-          <p>大多数老板选错了应对方式——那正确的方式是什么？塔孜提供三大核心产品线,覆盖注册、记账报税、注销、变更等一站式互联网智能财税服务。</p>
+          <p>大多数老板选错了应对方式——那正确的方式是什么？塔孜提供四大产品线,覆盖注册、变更、注销、记账报税、经营分析等一站式互联网智能财税服务。</p>
           <figure class="image-block">
             <img src="assets/company_pdf_page_07.jpg" alt="塔孜财税产品体系">
           </figure>
@@ -1319,6 +1426,7 @@
               <thead>
                 <tr>
                   <th>对比维度</th>
+                  <th>零星服务</th>
                   <th>代理记账(小规模)</th>
                   <th>合规账(一般纳税人)</th>
                   <th>经营账外包</th>
@@ -1327,24 +1435,28 @@
               <tbody>
                 <tr>
                   <td>适用企业</td>
+                  <td>所有企业(单次需求)</td>
                   <td>初创/小微企业</td>
                   <td>规模型/一般纳税人</td>
                   <td>中大型/精细化管理</td>
                 </tr>
                 <tr>
                   <td>核心价值</td>
+                  <td>灵活快捷,按需即办</td>
                   <td>基础合规,省心起步</td>
                   <td>风险预警,金四合规</td>
                   <td>制度搭建,经营赋能</td>
                 </tr>
                 <tr>
                   <td>服务深度</td>
+                  <td>单次服务,即时办理</td>
                   <td>记账报税 + 基础增值</td>
                   <td>十大模块深度合规</td>
                   <td>19项全流程精细服务</td>
                 </tr>
                 <tr>
                   <td>起步价格</td>
+                  <td>200元/次起</td>
                   <td>800元/年起</td>
                   <td>1400元/月起</td>
                   <td>3000元/月起</td>
@@ -1352,11 +1464,94 @@
               </tbody>
             </table>
           </div>
-          <p style="font-size:12px;color:#6b7280;margin-top:6px;">※ 代理记账按年签约收费；合规账与经营账按月收费，按年签约。</p>
+          <p style="font-size:12px;color:#6b7280;margin-top:6px;">※ 零星服务按次收费；代理记账按年签约收费；合规账与经营账按月收费，按年签约。</p>
+        </section>
+
+        <section id="sporadic">
+          <h2 class="section-title" data-index="03">工商税务零星服务</h2>
+          <div class="pain-point-box">
+            很多老板以为注册完公司就万事大吉了。<br>
+            殊不知——<strong>法人变了没改工商？地址变了没做变更？年报忘了报被拉异常？发票不够用不敢增？</strong><br>
+            这些看似小事，拖久了就是大事：<strong>罚款、限购、甚至吊销执照</strong>。
+          </div>
+
+          <!-- 高频服务卡 -->
+          <div class="hot-card">
+            <div class="hot-card-header">💥 高频服务 · 不处理后果严重</div>
+            <div class="hot-item">
+              <span class="dot red"></span>
+              <div class="info">
+                <div class="title-row"><span class="title">经营异常名录移出（地址异常）</span><span class="price-tag">1500元起</span></div>
+                <div class="desc">地址失联被列入异常 → 信用受损 → 贷款受阻</div>
+              </div>
+            </div>
+            <div class="hot-item">
+              <span class="dot red"></span>
+              <div class="info">
+                <div class="title-row"><span class="title">税务异常解除</span><span class="price-tag">1500元起</span></div>
+                <div class="desc">逾期未申报/欠税 → 限制开票 → 法人限高</div>
+              </div>
+            </div>
+            <div class="hot-item">
+              <span class="dot red"></span>
+              <div class="info">
+                <div class="title-row"><span class="title">非正常户解除</span><span class="price-tag">2000元起</span></div>
+                <div class="desc">税务认定的最严重等级，影响法人个人征信</div>
+              </div>
+            </div>
+            <div class="hot-item">
+              <span class="dot yellow"></span>
+              <div class="info">
+                <div class="title-row"><span class="title">税务逾期补报</span><span class="price-tag">500元起</span></div>
+                <div class="desc">越拖罚越多，早补早安心</div>
+              </div>
+            </div>
+            <div class="hot-item">
+              <span class="dot green"></span>
+              <div class="info">
+                <div class="title-row"><span class="title">公司注册（含执照+印章+税务报到）</span><span class="price-tag">800元起</span></div>
+                <div class="desc">一站式注册，3-5天拿照</div>
+              </div>
+            </div>
+            <div class="hot-item">
+              <span class="dot green"></span>
+              <div class="info">
+                <div class="title-row"><span class="title">公司注销（简易注销）</span><span class="price-tag">800元起</span></div>
+                <div class="desc">不经营必须注销，否则年年罚款</div>
+              </div>
+            </div>
+            <div class="hot-item">
+              <span class="dot green"></span>
+              <div class="info">
+                <div class="title-row"><span class="title">股权/法人变更</span><span class="price-tag">800元起</span></div>
+                <div class="desc">合伙变动/法人更换，工商税务同步变更</div>
+              </div>
+            </div>
+            <div class="hot-item">
+              <span class="dot green"></span>
+              <div class="info">
+                <div class="title-row"><span class="title">发票增版增量</span><span class="price-tag">500元起</span></div>
+                <div class="desc">业务增长发票不够用？帮你申请升级</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 分类速查卡 -->
+          <div class="quick-card">
+            <div class="quick-card-title">📋 更多服务 · 一站式覆盖</div>
+            <div class="quick-row"><span class="cat-label business">工商</span>名称变更·经营范围变更·地址变更·注册资本变更·工商年报·执照补办换发·个体户注册注销·一般注销</div>
+            <div class="quick-row"><span class="cat-label tax">税务</span>税务登记·纳税人认定/取消·发票代开·遗失处理·汇算清缴·注销清算·个税申报</div>
+            <div class="quick-row"><span class="cat-label other">其他</span>银行开户·社保/公积金开户及代缴·工商年检·食品经营许可·其他资质</div>
+            <div class="quick-note">💬 以上项目均可办理，签约代理记账客户享专属优惠价，详情咨询客服</div>
+          </div>
+
+          <div class="promise">
+            🛡️ 塔孜承诺：所有零星服务明码标价，无隐藏收费。签约代理记账客户享专属优惠价，详情咨询客服。
+          </div>
         </section>
 
         <section id="bookkeeping">
-          <h2 class="section-title" data-index="03">代理记账(小规模纳税人)</h2>
+          <h2 class="section-title" data-index="04">代理记账(小规模纳税人)</h2>
           <div class="product-card">
             <header>
               <h3>基础合规 · 降本增效 · 无忧起步</h3>
@@ -1388,11 +1583,11 @@
               </tbody>
             </table>
           </div>
-          <p>可选增值项目:银行开户500元/次起,社保/公积金开户600元/次起,企业工商年检500元/年,年度所得税汇算清缴500元/次,一般纳税人认定600元/年起,办公耗材300元/年。</p>
+          <p>签约客户专享增值项目:银行开户500元/次起,社保/公积金开户600元/次起,企业工商年检500元/年,年度所得税汇算清缴500元/次,一般纳税人认定600元/年起,办公耗材300元/年。<span style="font-size:12px;color:#6b7280;">（非签约客户请参考上方零星服务价格）</span></p>
         </section>
 
         <section id="compliance">
-          <h2 class="section-title" data-index="04">合规账服务(一般纳税人)</h2>
+          <h2 class="section-title" data-index="05">合规账服务(一般纳税人)</h2>
           <div class="product-card">
             <header>
               <h3>金四合规 · 风险预警 · 证据链闭环</h3>
@@ -1425,7 +1620,7 @@
         </section>
 
         <section id="operation">
-          <h2 class="section-title" data-index="05">经营账外包服务</h2>
+          <h2 class="section-title" data-index="06">经营账外包服务</h2>
           <div class="product-card">
             <header>
               <h3>制度搭建 · 精细核算 · 经营分析 · 管理赋能</h3>
@@ -1498,7 +1693,7 @@
           </div>
 
         <section id="team">
-          <h2 class="section-title" data-index="06">专属服务团队</h2>
+          <h2 class="section-title" data-index="07">专属服务团队</h2>
           <p>财税服务的核心不是"一个人替你报税",而是让工商、税务、银行、社保、公积金、票据、账目和咨询都有明确责任人。塔孜坚持<strong>标准四对一</strong>（常规服务）/<strong>5维1体</strong>（经营账外包）服务模式,为每位客户建立<strong>独立企业档案</strong>（含资料交接确认表）,保障资料安全与信息准确。</p>
           <figure class="image-block">
             <img src="assets/company_pdf_page_04.jpg" alt="塔孜财税团队展示">
@@ -1522,7 +1717,7 @@
 
         <section id="advantages">
 
-          <h2 class="section-title" data-index="07">服务优势与保障</h2>
+          <h2 class="section-title" data-index="08">服务优势与保障</h2>
           <p>塔孜财税的优势可以概括为四句话:品牌实力强、服务工具智能化、服务模式多对一、服务内容可视化。</p>
           <figure class="image-block">
             <img src="assets/company_pdf_page_05.jpg" alt="塔孜财税服务优势">
@@ -1570,7 +1765,7 @@
         </section>
 
         <section id="cases">
-          <h2 class="section-title" data-index="08">服务案例与客户好评</h2>
+          <h2 class="section-title" data-index="09">服务案例与客户好评</h2>
           <div class="case-grid">
             <div class="case-card"><h3>某商贸公司（年营收800万）</h3><p>接手前：票据混乱、多次迟报罚款。接手后：3个月完成合规梳理，当年零处罚。</p></div>
             <div class="case-card"><h3>某制造企业（一般纳税人）</h3><p>金税四期预警触发，塔孜协助补正进项凭证，避免约20万潜在罚款。</p></div>
@@ -1618,7 +1813,7 @@
         </section>
 
         <section id="network">
-          <h2 class="section-title" data-index="09">全国服务网络</h2>
+          <h2 class="section-title" data-index="10">全国服务网络</h2>
           <p>塔孜财税已在<strong>安徽、江苏、湖北</strong>三地设立<strong>10余家分公司</strong>，自有办公场地5000余平方米，形成覆盖长三角与中部的服务网络。</p>
           <figure class="image-block">
             <img src="assets/company_pdf_page_11.jpg" alt="塔孜财税分公司地址">
