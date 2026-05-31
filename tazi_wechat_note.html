@@ -137,7 +137,7 @@
       font-size: 14px;
     }
 
-    .meta b { color: #2d6b52; font-weight: 600; }
+    .meta b { color: #04784f; font-weight: 600; }
 
     .hero-img {
       overflow: hidden;
@@ -157,7 +157,7 @@
       padding: 18px 18px;
       border-left: 4px solid var(--primary);
       background: linear-gradient(90deg, rgba(6, 166, 106, .08), rgba(6, 166, 106, .02));
-      color: #12392b;
+      color: #04784f;
       font-size: 18px;
       font-weight: 650;
     }
@@ -175,7 +175,7 @@
       justify-content: center;
       min-height: 38px;
       padding: 8px 10px;
-      color: #174735;
+      color: #04784f;
       text-decoration: none;
       border: 1px solid #bfe9d2;
       border-radius: 8px;
@@ -289,7 +289,7 @@
       text-wrap: pretty;
     }
 
-    strong { color: #0b714c; font-weight: 700; }
+    strong { color: #04784f; font-weight: 700; }
 
     .metrics {
       display: grid;
@@ -370,7 +370,7 @@
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #06a66a 0%, #048052 100%);
+      background: linear-gradient(135deg, #06a66a 0%, #04784f 100%);
       color: #fff;
       font-size: 15px;
       font-weight: 700;
@@ -475,7 +475,7 @@
     }
 
     th {
-      color: #0d4d38;
+      color: #04784f;
       background: #effaf4;
       font-weight: 700;
     }
@@ -808,7 +808,7 @@
       margin: 0 -34px;
       padding: 40px 34px 32px;
       border-radius: 0;
-      background: #065f3d;
+      background: linear-gradient(135deg, #04784f 0%, #065f3d 100%);
     }
 
     .contact-label {
@@ -1022,10 +1022,10 @@
     .banner-item {
       padding: 12px 14px;
       text-align: center;
-      border: 1px solid #e8d5c0;
+      border: 1px solid #c6ead7;
       border-radius: var(--radius);
-      background: linear-gradient(135deg, #fff8f0, #fff);
-      color: #8a4b08;
+      background: linear-gradient(135deg, #f4fff9, #fff);
+      color: #04784f;
       font-size: 14px;
       font-weight: 650;
       line-height: 1.4;
@@ -1165,6 +1165,89 @@
       .backtop { display: none; }
       section { break-inside: avoid; }
     }
+
+    /* 经营账痛点卡片 */
+    .pain-point-box {
+      background: #fff7ed;
+      border-left: 4px solid #c2410c;
+      padding: 14px 18px;
+      margin: 16px 0 20px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 15px;
+      line-height: 1.75;
+      color: #7c2d12;
+    }
+    .pain-point-box strong {
+      color: #9a3412;
+    }
+
+    /* 三步走列表 */
+    .step-list {
+      margin: 8px 0 12px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .step-list li {
+      position: relative;
+      padding: 10px 0 10px 12px;
+      line-height: 1.7;
+      font-size: 15px;
+      border-bottom: 1px dashed #e5e7eb;
+    }
+    .step-list li:last-child {
+      border-bottom: none;
+    }
+    .step-tag {
+      display: inline-block;
+      background: #e8f8ef;
+      color: #04784f;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 2px 10px;
+      border-radius: 6px;
+      margin-right: 6px;
+    }
+
+    /* 金句收尾 */
+    .closing-highlight {
+      display: block;
+      text-align: center;
+      margin-top: 14px;
+      padding: 10px 16px;
+      background: linear-gradient(90deg, transparent, #f0fdf4, transparent);
+      color: #04784f;
+      font-weight: 700;
+      font-size: 15.5px;
+      letter-spacing: 0.5px;
+      border-radius: 8px;
+    }
+    /* 双列服务明细表 */
+    .dual-col-table {
+      table-layout: fixed;
+      font-size: 13.5px;
+    }
+    .dual-col-table td,
+    .dual-col-table th {
+      padding: 7px 8px;
+      vertical-align: top;
+    }
+    .dual-col-table td:first-child,
+    .dual-col-table th:first-child,
+    .dual-col-table td:nth-child(3),
+    .dual-col-table th:nth-child(3) {
+      text-align: center;
+      color: #6b7280;
+      font-size: 12px;
+    }
+    .dual-col-table thead th:nth-child(2),
+    .dual-col-table thead th:nth-child(4) {
+      font-weight: 700;
+      font-size: 13.5px;
+    }
+    .dual-col-table tbody td:nth-child(2),
+    .dual-col-table tbody td:nth-child(4) {
+      line-height: 1.5;
+    }
   </style>
 </head>
 <body id="top">
@@ -1284,8 +1367,8 @@
               <li>税务登记、税务报到、初次发票审批、税银联网、网报办理。</li>
               <li>整理粘贴单据、总账与明细账记账、编制会计报表及税务申报表。</li>
               <li>纳税申报、税务日常配合、凭证规范装订、报表存档、年末账本打印装订。</li>
-              <li>代理购买发票、开票服务、小程序财务查询、社保托管、核定残保金。</li>
-              <li>协助税务检查、日常财税咨询、指导企业出纳、企业工商年检、年度所得税汇算清缴。</li>
+              <li>代理购买发票、开票服务、税务申报表及时推送、小程序财务查询、社保托管、核定残保金。</li>
+              <li>建账、减免税优惠政策备案、协助税务检查、日常财税咨询、指导企业出纳。</li>
             </ul>
           </div>
           <div class="table-wrap">
@@ -1298,14 +1381,14 @@
                 </tr>
               </thead>
               <tbody>
-                <tr><td>零申报</td><td class="price">800元/年</td><td>3年3300元 | 5年5000元</td></tr>
-                <tr><td>100万以内</td><td class="price">1200元/年</td><td>3年3900元 | 5年5500元</td></tr>
-                <tr><td>100-200万</td><td class="price">1500元/年</td><td>3年5100元 | 5年7000元</td></tr>
-                <tr><td>200万以上</td><td class="price">2000元/年起</td><td>多年一客一议</td></tr>
+                <tr><td>零申报</td><td class="price">800元/年</td><td>3年2000元（省400）| 5年3000元（省1000）</td></tr>
+                <tr><td>100万以内</td><td class="price">1200元/年</td><td>3年3300元（省300）| 5年5000元（省1000）</td></tr>
+                <tr><td>100-200万</td><td class="price">1500元/年</td><td>3年3900元（省600）| 5年5500元（省2000）</td></tr>
+                <tr><td>200万以上</td><td class="price">2000元/年</td><td>3年5100元（省900）| 5年7000元（省3000）</td></tr>
               </tbody>
             </table>
           </div>
-          <p>可选增值项目:银行开户500元/次起,社保/公积金开户600元/次起,一般纳税人认定600元/年起,办公耗材300元/年。</p>
+          <p>可选增值项目:银行开户500元/次起,社保/公积金开户600元/次起,企业工商年检500元/年,年度所得税汇算清缴500元/次,一般纳税人认定600元/年起,办公耗材300元/年。</p>
         </section>
 
         <section id="compliance">
@@ -1317,12 +1400,13 @@
             </header>
             <p>在金税四期严监管下,为企业构建完整证据链与税务风险防控体系,尤其适合票据、进项、库存、往来、工资和报表要求更高的一般纳税人企业。</p>
             <ul class="feature-list">
-              <li>基础管理:注册、初始建账、税务登记、银行开户预约。</li>
-              <li>合规开票:数电发票申请、5分钟响应、内容审核、进项质检预警。</li>
-              <li>证据链管理:每项审核、每月归档,保障业务、票据、资金、合同逻辑一致。</li>
-              <li>税务对接:专管员对接、绿色通道、稽查应对。</li>
-              <li>记账报税:总账明细、报表编制、年报、凭证存档。</li>
-              <li>库存账、往来账款、人员工资、税务体检、沟通管理等十大模块深度合规。</li>
+              <li>税务登记报到、税银联网网报办理、整理粘贴单据、税务日常配合。</li>
+              <li>发票审批、开票服务、发票增版增量、增值税进项发票认证。</li>
+              <li>记账（总账、明细账）、编制会计报表及税务申报表、纳税申报、凭证规范装订及存档、年末账本打印装订。</li>
+              <li>税务申报表及时推送、小程序财务查询、社保托管、企业工商年检、年度所得税汇算清缴。</li>
+              <li>建账、协助税务机构财务检查、日常财税咨询、指导企业出纳、核定残保金、减免税优惠政策备案、日常账务风险提醒。</li>
+              <li>库存账、往来账款、人员工资、税务体检、证据链管理、沟通管理等十大模块深度合规。</li>
+              <li>可选增值：银行开户500元/次起、社保开户600元/次起、公积金开户600元/次起、每月社保公积金缴纳600元/年起、工本费400元/年。</li>
             </ul>
           </div>
           <div class="table-wrap">
@@ -1332,8 +1416,8 @@
               </thead>
               <tbody>
                 <tr><td>年主营业务收入1000万以内</td><td class="price">1400元/月</td><td>按月收费,按年签约</td></tr>
-                <tr><td>1000-2000万</td><td class="price">2000元/月</td><td>按月收费,按年签约</td></tr>
-                <tr><td>2000万以上</td><td class="price">一客一议</td><td>按经营复杂度确认方案</td></tr>
+                <tr><td>年主营业务收入1000-2000万</td><td class="price">2000元/月</td><td>按月收费,按年签约</td></tr>
+                <tr><td>年主营业务收入2000万以上</td><td class="price">一客一议</td><td>按经营复杂度确认方案</td></tr>
                 <tr><td>专项增值</td><td class="price">1600元/月起</td><td>辅助账搭建;含专项服务2200元/月起</td></tr>
               </tbody>
             </table>
@@ -1347,16 +1431,64 @@
               <h3>制度搭建 · 精细核算 · 经营分析 · 管理赋能</h3>
               <span class="tag">适合管理升级企业</span>
             </header>
-            <p>经营账外包不止是报税,它更关注企业内部管理:有没有制度、数据准不准、成本利润看不看得懂、经营动作能不能被报表支持。</p>
-            <ul class="feature-list">
-              <li>服务流程:企业沟通 → 签约 → 财务体系梳理 → 内部系统搭建 → 凭证审核做账出表 → 分析督导。</li>
-              <li>阶段一:业务沟通、六大模块制度梳理、软件提供、账套建立、初始化数据指导。</li>
-              <li>阶段二:报销流程梳理、岗位指导培训。</li>
-              <li>阶段三:成本、销售、费用、资金审核,进销存核算,凭证编制。</li>
-              <li>阶段四:资产负债表、管理利润表、财务分析、ERP搭建、年度分析。</li>
-              <li>阶段五:凭证装订、政策宣导、每月汇报。</li>
+            <div class="pain-point-box">
+              你的企业是不是也面临这些困扰：<strong>账目只有报税用、老板看不懂；成本利润一笔糊涂账；单据堆积如山却没人梳理；想看经营数据，财务只会甩报表</strong>？如果这些问题你中了哪怕一条，说明你的财务还停留在“记账报税”阶段——能应付税务局，但帮不了经营决策。
+            </div>
+            <p style="margin-bottom:16px;line-height:1.75;">塔孜经营账外包的核心逻辑很简单：<strong>先搭制度，再理流程，最后出报表</strong>。我们会为企业建立采购、销售、费用、资金、报表、成本<strong>六大核算模块</strong>，从源头规范每一张单据怎么收、每一笔钱怎么记、每一个岗位怎么配合。不是帮你“把账做平”，而是让<strong>数据从业务端自动流向决策端</strong>——老板打开报表，看到的不再是冰冷的数字，而是每条产品线的真实盈利能力。</p>
+            <ul class="step-list">
+              <li><span class="step-tag">① 搭建期</span>业前沟通梳理流程，提供财务软件并建账套，指导出纳、库管、销售、采购等各岗位衔接核算工作流</li>
+              <li><span class="step-tag">② 运行期</span>每日审核成本/销售/费用/资金四类单据，编制进销存明细账与项目辅助核算，保证账实相符</li>
+              <li><span class="step-tag">③ 输出期</span>每月出具资产负债表与管理利润表，项目经理主动向负责人汇报经营情况，年度再做一次深度数据分析</li>
             </ul>
-            <p style="margin-top:12px;"><span class="price">3000元/月起,按年收费</span>,具体根据企业规模和服务深度一客一议。</p>
+            <p style="font-size:14.5px;color:#6b7280;margin-bottom:0;">塔孜5维1体项目组（项目经理＋主任会计师＋主管会计＋助理会计＋管家客服）线上线下协同推进</p>
+          </div>
+
+          <!-- 经营账流程图（满屏无边距） -->
+          <figure style="margin:0;padding:0;line-height:0;">
+            <img src="assets/e629c47d-54c7-434b-974c-cca68faf4687.jpg" alt="经营账外包服务流程图" style="width:100%;display:block;margin:0;padding:0;">
+          </figure>
+
+          <!-- 经营账19项明细表（双列布局） -->
+          <div class="table-wrap" style="margin-top:16px;">
+            <table class="dual-col-table">
+              <colgroup>
+                <col style="width:28px"><col style="width:calc(44% - 28px)">
+                <col style="width:28px"><col>
+              </colgroup>
+              <thead>
+                <tr><th colspan="4" style="text-align:center;font-weight:700;color:#ffffff;font-size:15px;padding:10px;background:#04784f;letter-spacing:0.5px;">✦ 19项服务环环相扣，不留死角 ✦</th></tr>
+                <tr><th>#</th><th>搭建期（1-7）</th><th>#</th><th>运行期（8-14）</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>业前沟通，了解业务/财务流程</td><td>8</td><td>审核采购进货单据/软件进货数据</td></tr>
+                <tr><td>2</td><td>梳理六大模块核算制度/流程/表单</td><td>9</td><td>审核销售合同/发票/出库单据</td></tr>
+                <tr><td>3</td><td>提供财务软件（甲/乙方可选）</td><td>10</td><td>审核费用报销等支出凭证</td></tr>
+                <tr><td>4</td><td>依据核算需求建立财务账套</td><td>11</td><td>审核资金日记账/银行流水，账实核对</td></tr>
+                <tr><td>5</td><td>指导内勤人员整理初始化数据</td><td>12</td><td>建进销存明细账，项目辅助核算</td></tr>
+                <tr><td>6</td><td>梳理报销流程/核算维度，培训讲解</td><td>13</td><td>编制记账凭证，规范账务处理</td></tr>
+                <tr><td>7</td><td>指导出纳/库管/销售/采购衔接流程</td><td>14</td><td>每月出具资产负债表/管理利润表</td></tr>
+                <tr><td colspan="4" style="text-align:center;font-weight:700;color:#04784f;background:#eefaf4;font-size:14px;padding:8px;">输出期（15-19）</td></tr>
+                <tr><td colspan="4" style="background:#f9fafb;padding:8px 12px;">
+                  <div style="display:flex;gap:12px;">
+                    <div style="flex:1;font-size:13px;line-height:1.8;"><b>15</b> 钉钉/OA/ERP审批系统搭建<br><b>16</b> 年度财务数据分析<br><b>17</b> 整理装订会计凭证/账本</div>
+                    <div style="flex:1;font-size:13px;line-height:1.8;"><b>18</b> 最新财税政策宣导<br><b>19</b> 每月向负责人汇报财务情况</div>
+                  </div>
+                </td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 经营账价格表 -->
+          <div class="table-wrap" style="margin-top:16px;">
+            <table>
+              <thead>
+                <tr><th style="width:35%;">收费模式</th><th style="width:30%;">价格标准</th><th>说明</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>基础套餐</td><td class="price">3000元/月 起</td><td>按年签约，按年收费</td></tr>
+                <tr><td>定制方案</td><td class="price">一客一议</td><td>根据企业规模和服务深度确认</td></tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
@@ -1496,7 +1628,7 @@
         <section id="contact">
           <div class="contact contact-wide">
             <div class="contact-label">10 · 联系我们</div>
-            <h2>专业的事交给专业的人，让您经营无忧</h2>
+            <h2>专业事交给专业人，选择塔孜、让您从此财税无忧！</h2>
             <p class="contact-subtitle">欢迎添加微信或致电咨询，获取专属财税顾问服务。</p>
 
             <div class="contact-card">
